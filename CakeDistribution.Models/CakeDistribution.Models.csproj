@@ -54,6 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cake\CakeCreate.cs" />
+    <Compile Include="Cake\CakeListItem.cs" />
+    <Compile Include="Customer\CustomerCreate.cs" />
+    <Compile Include="Customer\CustomerListItem.cs" />
+    <Compile Include="Employee\EmployeeCreate.cs" />
+    <Compile Include="Employee\EmployeeListItem.cs" />
+    <Compile Include="Order\OrderCreate.cs" />
+    <Compile Include="Order\OrderlistItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

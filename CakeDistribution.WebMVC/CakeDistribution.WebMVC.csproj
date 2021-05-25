@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CakeDistribution.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\CakeDistribution.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -168,8 +172,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CakeController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +242,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cake\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Cake\Create.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -252,17 +267,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CakeDistribution.Data\CakeDistribution.Data.csproj">
-      <Project>{a845862e-8d29-419c-9957-ebf4cf93a2fb}</Project>
-      <Name>CakeDistribution.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CakeDistribution.Models\CakeDistribution.Models.csproj">
-      <Project>{a2a09d71-fa42-4956-96e8-724ace6e5a61}</Project>
+      <Project>{A2A09D71-FA42-4956-96E8-724ACE6E5A61}</Project>
       <Name>CakeDistribution.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CakeDistribution.Services\CakeDistribution.Services.csproj">
-      <Project>{3a1ce102-4dd5-4fca-a57c-4026c84bdb55}</Project>
-      <Name>CakeDistribution.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
