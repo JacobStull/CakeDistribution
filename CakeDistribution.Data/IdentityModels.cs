@@ -31,9 +31,9 @@ namespace CakeDistribution.Data
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Cake> Cakes { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Cakes> Cakes { get; set; }
+        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Employees> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

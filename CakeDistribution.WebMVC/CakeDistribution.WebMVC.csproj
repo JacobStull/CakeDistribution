@@ -271,6 +271,10 @@
       <Project>{A2A09D71-FA42-4956-96E8-724ACE6E5A61}</Project>
       <Name>CakeDistribution.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CakeDistribution.Services\CakeDistribution.Services.csproj">
+      <Project>{3a1ce102-4dd5-4fca-a57c-4026c84bdb55}</Project>
+      <Name>CakeDistribution.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

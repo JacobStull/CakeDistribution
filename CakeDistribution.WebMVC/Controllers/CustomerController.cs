@@ -1,4 +1,6 @@
 ﻿using CakeDistribution.Models.Customer;
+using CakeDistribution.Services.Customer;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace CakeDistribution.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(userId);
             var model = new CustomerListItem[0];
             return View(model);
         }
@@ -30,9 +34,14 @@ namespace CakeDistribution.WebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(userId);
+
+            service.CreateCustomer(model);
+            return RedirectToAction("Index");
         }
 
     }

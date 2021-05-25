@@ -1,5 +1,7 @@
 ﻿
 using CakeDistribution.Models.Cake;
+using CakeDistribution.Services.Cake;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,8 @@ namespace CakeDistribution.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CakeService(userId);
             var model = new CakeListItem[0];
             return View(model);
         }
@@ -31,9 +35,14 @@ namespace CakeDistribution.WebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-
-            }
             return View(model);
+            }
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CakeService(userId);
+
+            service.CreateCake(model);
+            return RedirectToAction("Index");
         }
 
     }

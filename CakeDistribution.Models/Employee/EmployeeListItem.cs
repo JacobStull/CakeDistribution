@@ -10,7 +10,7 @@ namespace CakeDistribution.Models.Employee
     public class EmployeeListItem
     {
         [Display(Name = "Id")]
-        public int EmplyeeId { get; set; }
+        public int EmployeeId { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]

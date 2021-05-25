@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cake\CakeService.cs" />
+    <Compile Include="Customer\CustomerService.cs" />
+    <Compile Include="Employee\EmployeeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CakeDistribution.Data\CakeDistribution.Data.csproj">
+      <Project>{a845862e-8d29-419c-9957-ebf4cf93a2fb}</Project>
+      <Name>CakeDistribution.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CakeDistribution.Models\CakeDistribution.Models.csproj">
+      <Project>{a2a09d71-fa42-4956-96e8-724ace6e5a61}</Project>
+      <Name>CakeDistribution.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

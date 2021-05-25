@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CakeDistribution.Data
 {
-    public class Customer
+    public class Customers
     {
         [Key]
         public int CustomerId { get; set; }

@@ -54,9 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cake.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Employee.cs" />
+    <Compile Include="Cakes.cs" />
+    <Compile Include="Customers.cs" />
+    <Compile Include="Employees.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202105240531433_InitialCreate.cs" />
     <Compile Include="Migrations\202105240531433_InitialCreate.Designer.cs">
@@ -81,20 +81,6 @@
     <EmbeddedResource Include="Migrations\202105251549161_InitialMigration.resx">
       <DependentUpon>202105251549161_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CakeDistribution.Models\CakeDistribution.Models.csproj">
-      <Project>{a2a09d71-fa42-4956-96e8-724ace6e5a61}</Project>
-      <Name>CakeDistribution.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CakeDistribution.Services\CakeDistribution.Services.csproj">
-      <Project>{3a1ce102-4dd5-4fca-a57c-4026c84bdb55}</Project>
-      <Name>CakeDistribution.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CakeDistribution.WebMVC\CakeDistribution.WebMVC.csproj">
-      <Project>{b7da7358-00b6-4c74-8314-20f41a2c3fc3}</Project>
-      <Name>CakeDistribution.WebMVC</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

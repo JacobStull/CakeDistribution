@@ -32,5 +32,27 @@ namespace CakeDistribution.Services.Customer
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<CustomerListItem> GetCustomers()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Customers
+                        .Where(e => e.OwnerId == _userId)
+                        .Select(
+                            e =>
+                                new CustomerListItem
+                                {
+                                    CustomerId = e.CustomerId,
+                                    FirstName = e.FirstName,
+                                    LastName = e.LastName,
+                                    Address = e.Address
+                                }
+                            );
+                return query.ToArray();
+            }
+        }
     }
 }
