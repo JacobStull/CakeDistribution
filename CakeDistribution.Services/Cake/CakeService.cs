@@ -15,7 +15,7 @@ namespace CakeDistribution.Services.Cake
         {
             _userId = userId;
         }
-
+        //Create
         public bool CreateCake(CakeCreate model)
         {
             var entity =
@@ -29,18 +29,18 @@ namespace CakeDistribution.Services.Cake
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Cakes.Add(entity);
+                ctx.ActiveCakes.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        //Get
         public IEnumerable<CakeListItem> GetCakes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Cakes
+                        .ActiveCakes
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
@@ -53,6 +53,41 @@ namespace CakeDistribution.Services.Cake
                                 }
                             );
                 return query.ToArray();
+            }
+        }
+        //GetByID
+        public CakeDetail GetCakeById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveCakes
+                        .Single(e => e.CakeId == id && e.OwnerId == _userId);
+                return
+                    new CakeDetail
+                    {
+                        CakeId = entity.CakeId,
+                        CakeIcing = entity.CakeIcing,
+                        CakeName = entity.CakeName,
+                        Description = entity.Description,
+                    };
+            }
+        }
+
+        public bool UpdateCake(CakeEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveCakes
+                        .Single(e => e.CakeId == model.CakeId && e.OwnerId == _userId);
+                entity.CakeName = model.CakeName;
+                entity.CakeIcing = model.CakeIcing;
+                entity.Description = model.Description;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

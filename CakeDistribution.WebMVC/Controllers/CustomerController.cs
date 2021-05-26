@@ -15,8 +15,7 @@ namespace CakeDistribution.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
+            var service = CreateCustomerService();
             var model = new CustomerListItem[0];
             return View(model);
         }
@@ -32,17 +31,74 @@ namespace CakeDistribution.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)  return View(model);
+
+            var service = CreateCustomerService();
+
+            service.CreateCustomer(model);
+
+            if (service.CreateCustomer(model))
             {
+                TempData["SaveResult"] = "Your customer was saved.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your customer could not be saved.");
+
+            return View(model);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCustomerService();
+            var model = svc.GetCustomerById(id);
+            return View(model);
+        }
+
+        //Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCustomerService();
+            var detail = service.GetCustomerById(id);
+            var model =
+                new CustomerEdit
+                {
+                    CustomerId = detail.CustomerId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Address = detail.Address
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CustomerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.CustomerId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new CustomerService(userId);
+            var service = CreateCustomerService();
 
-            service.CreateCustomer(model);
-            return RedirectToAction("Index");
+            if (service.UpdateCustomer(model))
+            {
+                TempData["SaveResults"] = "Your Cake was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your Cake could not be updated.");
+            return View(model);
         }
 
+        private CustomerService CreateCustomerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(userId);
+            return service;
+        }
     }
 }

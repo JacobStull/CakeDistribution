@@ -28,7 +28,7 @@ namespace CakeDistribution.Services.Customer
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Customers.Add(entity);
+                ctx.ActiveCustomers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -39,7 +39,7 @@ namespace CakeDistribution.Services.Customer
             {
                 var query =
                     ctx
-                        .Customers
+                        .ActiveCustomers
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
@@ -52,6 +52,42 @@ namespace CakeDistribution.Services.Customer
                                 }
                             );
                 return query.ToArray();
+            }
+        }
+
+        public CustomerDetail GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveCustomers
+                        .Single(e => e.CustomerId == id && e.OwnerId == _userId);
+                return
+                      new CustomerDetail
+                      {
+                          CustomerId = entity.CustomerId,
+                          FirstName = entity.FirstName,
+                          LastName = entity.LastName,
+                          Address = entity.Address
+
+                      };
+            }
+        }
+
+        public bool UpdateCustomer(CustomerEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveCustomers
+                        .Single(e => e.CustomerId == model.CustomerId && e.OwnerId == _userId);
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Address = model.Address;
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

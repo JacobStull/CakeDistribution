@@ -31,10 +31,14 @@ namespace CakeDistribution.Data
         {
             return new ApplicationDbContext();
         }
-        public DbSet<Cakes> Cakes { get; set; }
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Employees> Employees { get; set; }
+
+
+        public DbSet<Cakes> ActiveCakes { get; set; }
+        public DbSet<Customers> ActiveCustomers { get; set; }
+        public DbSet<Employees> ActiveEmployees { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

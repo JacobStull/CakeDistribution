@@ -55,10 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cake\CakeCreate.cs" />
+    <Compile Include="Cake\CakeDetail.cs" />
+    <Compile Include="Cake\CakeEdit.cs" />
     <Compile Include="Cake\CakeListItem.cs" />
     <Compile Include="Customer\CustomerCreate.cs" />
+    <Compile Include="Customer\CustomerDetail.cs" />
+    <Compile Include="Customer\CustomerEdit.cs" />
     <Compile Include="Customer\CustomerListItem.cs" />
     <Compile Include="Employee\EmployeeCreate.cs" />
+    <Compile Include="Employee\EmployeeDetail.cs" />
+    <Compile Include="Employee\EmployeeEdit.cs" />
     <Compile Include="Employee\EmployeeListItem.cs" />
     <Compile Include="Order\OrderCreate.cs" />
     <Compile Include="Order\OrderlistItem.cs" />

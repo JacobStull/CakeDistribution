@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CakeDistribution.Models.Cake
 {
-    public class CakeCreate
+    public class CakeDetail
     {
         [Required]
         public int CakeId { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [Display(Name ="Cake")]
+        [Display(Name = "Cake")]
         public string CakeName { get; set; }
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [Display(Name = "Icing")]
