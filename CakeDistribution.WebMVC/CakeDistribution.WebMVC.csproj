@@ -251,6 +251,10 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Cake\Edit.cshtml" />
+    <Content Include="Views\Cake\Delete.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -90,5 +90,20 @@ namespace CakeDistribution.Services.Employee
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //Delete
+        public bool DeleteEmployee(int employeeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveEmployees
+                        .Single(e => e.EmployeeId == employeeId && e.OwnerId == _userId);
+
+                ctx.ActiveEmployees.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

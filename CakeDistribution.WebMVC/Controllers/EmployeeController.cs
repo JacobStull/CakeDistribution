@@ -95,6 +95,26 @@ namespace CakeDistribution.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateEmployeeService();
+            var model = svc.GetEmployeeById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateEmployeeService();
+            service.DeleteEmployee(id);
+            TempData["SaveResult"] = "Your Employee was deleted.";
+            return RedirectToAction("Index");
+        }
+
         private EmployeeService CreateEmployeeService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

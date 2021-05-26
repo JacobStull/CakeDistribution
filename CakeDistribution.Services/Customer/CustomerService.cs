@@ -90,5 +90,20 @@ namespace CakeDistribution.Services.Customer
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //Delete
+        public bool DeleteCustomer(int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .ActiveCustomers
+                        .Single(e => e.CustomerId == customerId && e.OwnerId == _userId);
+
+                ctx.ActiveCustomers.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

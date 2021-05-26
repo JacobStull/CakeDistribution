@@ -94,6 +94,26 @@ namespace CakeDistribution.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCakeService();
+            var model = svc.GetCakeById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateCakeService();
+            service.DeleteCake(id);
+            TempData["SaveResult"] = "Your Cake was deleted.";
+            return RedirectToAction("Index");
+        }
+
 
         private CakeService CreateCakeService()
         {
