@@ -54,12 +54,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cakes.cs" />
+    <Compile Include="Customers.cs" />
+    <Compile Include="Desserts.cs" />
+    <Compile Include="Employees.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202105240531433_InitialCreate.cs" />
+    <Compile Include="Migrations\202105240531433_InitialCreate.Designer.cs">
+      <DependentUpon>202105240531433_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105251549161_InitialMigration.cs" />
+    <Compile Include="Migrations\202105251549161_InitialMigration.Designer.cs">
+      <DependentUpon>202105251549161_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105260256060_SecondMigration.cs" />
+    <Compile Include="Migrations\202105260256060_SecondMigration.Designer.cs">
+      <DependentUpon>202105260256060_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105270724446_CustomerDelete.cs" />
+    <Compile Include="Migrations\202105270724446_CustomerDelete.Designer.cs">
+      <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105271133444_OrderMigration.cs" />
+    <Compile Include="Migrations\202105271133444_OrderMigration.Designer.cs">
+      <DependentUpon>202105271133444_OrderMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105271541116_DessertMigration.cs" />
+    <Compile Include="Migrations\202105271541116_DessertMigration.Designer.cs">
+      <DependentUpon>202105271541116_DessertMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105240531433_InitialCreate.resx">
+      <DependentUpon>202105240531433_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105251549161_InitialMigration.resx">
+      <DependentUpon>202105251549161_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105260256060_SecondMigration.resx">
+      <DependentUpon>202105260256060_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270724446_CustomerDelete.resx">
+      <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271133444_OrderMigration.resx">
+      <DependentUpon>202105271133444_OrderMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271541116_DessertMigration.resx">
+      <DependentUpon>202105271541116_DessertMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

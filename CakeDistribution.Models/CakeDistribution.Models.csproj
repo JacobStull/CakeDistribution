@@ -54,11 +54,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cake\CakeCreate.cs" />
+    <Compile Include="Cake\CakeDetail.cs" />
+    <Compile Include="Cake\CakeEdit.cs" />
+    <Compile Include="Cake\CakeListItem.cs" />
+    <Compile Include="Customer\CustomerCreate.cs" />
+    <Compile Include="Customer\CustomerDetail.cs" />
+    <Compile Include="Customer\CustomerEdit.cs" />
+    <Compile Include="Customer\CustomerListItem.cs" />
+    <Compile Include="Dessert\DessertCreate.cs" />
+    <Compile Include="Dessert\DessertDetail.cs" />
+    <Compile Include="Dessert\DessertEdit.cs" />
+    <Compile Include="Dessert\DessertListItem.cs" />
+    <Compile Include="Employee\EmployeeCreate.cs" />
+    <Compile Include="Employee\EmployeeDetail.cs" />
+    <Compile Include="Employee\EmployeeEdit.cs" />
+    <Compile Include="Employee\EmployeeListItem.cs" />
+    <Compile Include="Order\OrderCreate.cs" />
+    <Compile Include="Order\OrderDetail.cs" />
+    <Compile Include="Order\OrderEdit.cs" />
+    <Compile Include="Order\OrderListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CakeDistribution.Data\CakeDistribution.Data.csproj">
+      <Project>{A845862E-8D29-419C-9957-EBF4CF93A2FB}</Project>
+      <Name>CakeDistribution.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

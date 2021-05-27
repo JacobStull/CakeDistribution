@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CakeDistribution.Models.Dessert.DessertListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Desserts</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DessertId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DessertName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DessertId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DessertName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {id=item.DessertId }) |
+            @Html.ActionLink("Details", "Details", new {id=item.DessertId }) |
+            @Html.ActionLink("Delete", "Delete", new {id=item.DessertId })
+        </td>
+    </tr>
+}
+
+</table>
