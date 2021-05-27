@@ -64,14 +64,14 @@ namespace CakeDistribution.Services.Customer
                         .ActiveCustomers
                         .Single(e => e.CustomerId == id && e.OwnerId == _userId);
                 return
-                      new CustomerDetail
-                      {
-                          CustomerId = entity.CustomerId,
-                          FirstName = entity.FirstName,
-                          LastName = entity.LastName,
-                          Address = entity.Address
+                    new CustomerDetail
+                    {
+                        CustomerId = entity.CustomerId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        Address = entity.Address
+                    };
 
-                      };
             }
         }
 

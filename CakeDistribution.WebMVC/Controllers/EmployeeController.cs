@@ -16,7 +16,7 @@ namespace CakeDistribution.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateEmployeeService();
-            var model = new EmployeeListItem[0];
+            var model = service.GetEmployees();
             return View(model);
         }
 
@@ -36,7 +36,7 @@ namespace CakeDistribution.WebMVC.Controllers
 
             var service = CreateEmployeeService();
 
-            service.CreateEmployee(model);
+            
 
             if (service.CreateEmployee(model))
             {

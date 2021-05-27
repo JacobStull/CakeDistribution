@@ -17,7 +17,7 @@ namespace CakeDistribution.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateCakeService();
-            var model = new CakeListItem[0];
+            var model = service.GetCakes();
             return View(model);
         }
 
@@ -34,17 +34,18 @@ namespace CakeDistribution.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
+
             var service = CreateCakeService();
 
-            service.CreateCake(model);
+            
 
             if (service.CreateCake(model))
             {
-                TempData["SaveResult"] = "Your cake was saved.";
+                TempData["SaveResult"] = "Your Cake was saved.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Your cake could not be saved.");
+            ModelState.AddModelError("", "Your Cake could not be saved.");
 
             return View(model);
         }
@@ -55,6 +56,7 @@ namespace CakeDistribution.WebMVC.Controllers
             var model = svc.GetCakeById(id);
             return View(model);
         }
+
         //Edit
         public ActionResult Edit(int id)
         {
@@ -76,8 +78,8 @@ namespace CakeDistribution.WebMVC.Controllers
         public ActionResult Edit(int id, CakeEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            
-            if(model.CakeId != id)
+
+            if (model.CakeId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -88,7 +90,7 @@ namespace CakeDistribution.WebMVC.Controllers
             if (service.UpdateCake(model))
             {
                 TempData["SaveResults"] = "Your Cake was updated.";
-                    return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Your Cake could not be updated.");
             return View(model);
@@ -114,12 +116,12 @@ namespace CakeDistribution.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-
         private CakeService CreateCakeService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CakeService(userId);
             return service;
         }
+
     }
 }

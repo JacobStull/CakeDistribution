@@ -16,12 +16,12 @@ namespace CakeDistribution.WebMVC.Controllers
         public ActionResult Index()
         {
             var service = CreateCustomerService();
-            var model = new CustomerListItem[0];
+            var model = service.GetCustomers();
             return View(model);
         }
 
         //Get
-            public ActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -31,19 +31,20 @@ namespace CakeDistribution.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreate model)
         {
-            if (!ModelState.IsValid)  return View(model);
+            if (!ModelState.IsValid) return View(model);
+
 
             var service = CreateCustomerService();
 
-            service.CreateCustomer(model);
+
 
             if (service.CreateCustomer(model))
             {
-                TempData["SaveResult"] = "Your customer was saved.";
+                TempData["SaveResult"] = "Your Customer was saved.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Your customer could not be saved.");
+            ModelState.AddModelError("", "Your Customer could not be saved.");
 
             return View(model);
         }
@@ -87,10 +88,10 @@ namespace CakeDistribution.WebMVC.Controllers
 
             if (service.UpdateCustomer(model))
             {
-                TempData["SaveResults"] = "Your Cake was updated.";
+                TempData["SaveResults"] = "Your Customer was updated.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your Cake could not be updated.");
+            ModelState.AddModelError("", "Your Customer could not be updated.");
             return View(model);
         }
 
@@ -110,7 +111,7 @@ namespace CakeDistribution.WebMVC.Controllers
         {
             var service = CreateCustomerService();
             service.DeleteCustomer(id);
-            TempData["SaveResult"] = "Your Customer was deleted.";
+            TempData["SaveResult"] = "Your Employee was deleted.";
             return RedirectToAction("Index");
         }
 
@@ -120,5 +121,6 @@ namespace CakeDistribution.WebMVC.Controllers
             var service = new CustomerService(userId);
             return service;
         }
+
     }
 }

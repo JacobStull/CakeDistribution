@@ -15,6 +15,7 @@ namespace CakeDistribution.Models.Customer
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Address")]
         public string Address { get; set; }
     }
 }

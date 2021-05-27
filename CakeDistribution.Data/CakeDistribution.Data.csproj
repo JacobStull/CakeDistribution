@@ -70,6 +70,10 @@
     <Compile Include="Migrations\202105260256060_SecondMigration.Designer.cs">
       <DependentUpon>202105260256060_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105270724446_CustomerDelete.cs" />
+    <Compile Include="Migrations\202105270724446_CustomerDelete.Designer.cs">
+      <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105260256060_SecondMigration.resx">
       <DependentUpon>202105260256060_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270724446_CustomerDelete.resx">
+      <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,8 +10,6 @@ namespace CakeDistribution.Models.Cake
     public class CakeCreate
     {
         [Required]
-        public int CakeId { get; set; }
-        [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [Display(Name ="Cake")]
         public string CakeName { get; set; }

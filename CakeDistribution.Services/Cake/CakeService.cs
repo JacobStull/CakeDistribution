@@ -15,7 +15,7 @@ namespace CakeDistribution.Services.Cake
         {
             _userId = userId;
         }
-        //Create
+
         public bool CreateCake(CakeCreate model)
         {
             var entity =
@@ -25,7 +25,6 @@ namespace CakeDistribution.Services.Cake
                     CakeName = model.CakeName,
                     CakeIcing = model.CakeIcing,
                     Description = model.Description
-
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -33,7 +32,7 @@ namespace CakeDistribution.Services.Cake
                 return ctx.SaveChanges() == 1;
             }
         }
-        //Get
+
         public IEnumerable<CakeListItem> GetCakes()
         {
             using (var ctx = new ApplicationDbContext())
@@ -55,7 +54,7 @@ namespace CakeDistribution.Services.Cake
                 return query.ToArray();
             }
         }
-        //GetByID
+
         public CakeDetail GetCakeById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -68,16 +67,17 @@ namespace CakeDistribution.Services.Cake
                     new CakeDetail
                     {
                         CakeId = entity.CakeId,
-                        CakeIcing = entity.CakeIcing,
                         CakeName = entity.CakeName,
-                        Description = entity.Description,
+                        CakeIcing = entity.CakeIcing,
+                        Description = entity.Description
                     };
+
             }
         }
 
         public bool UpdateCake(CakeEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
