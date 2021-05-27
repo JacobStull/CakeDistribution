@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image:url(Images/subtlebackground.jpg);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +23,42 @@ select,
 textarea {
     max-width: 280px;
 }
+.row{
+    text-align: center;
+}
+
+.jumbotron {
+    text-align: center;
+    background-size:cover;
+    background-image: url(Images/cakes.png);
+}
+.lead{
+    text-shadow:2px 2px pink;
+}
+#CherryCakes {
+    text-shadow: 2px 2px pink;
+}
+.row{
+    position:relative;
+}
+#Products{
+    width:100%;
+    height:200px;
+    margin:5px auto;
+}
+#Employees {
+    width: 100%;
+    height: 200px;
+    margin: 5px auto;
+}
+#Customers {
+    width: 100%;
+    height: 200px;
+    margin: 5px auto;
+}
+
+
+
+
+
+

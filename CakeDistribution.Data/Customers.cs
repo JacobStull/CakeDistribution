@@ -19,5 +19,7 @@ namespace CakeDistribution.Data
         public string LastName { get; set; }
         [Required]
         public string Address { get; set; }
+        public virtual ICollection<Orders> CustomerOrders { get; set; } = new List<Orders>();
+
     }
 }

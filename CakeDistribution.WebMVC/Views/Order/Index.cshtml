@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CakeDistribution.Models.Order.OrderlistItem>
+﻿@model IEnumerable<CakeDistribution.Models.Order.OrderListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -15,7 +15,13 @@
             @Html.DisplayNameFor(model => model.OrderId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.ItemOrdered)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
         </th>
         <th></th>
     </tr>
@@ -26,7 +32,13 @@
             @Html.DisplayFor(modelItem => item.OrderId)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ItemOrdered)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

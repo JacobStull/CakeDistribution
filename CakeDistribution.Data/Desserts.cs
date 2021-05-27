@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace CakeDistribution.Data
 {
-    public class Order
+    public class Desserts
     {
         [Key]
-        public int OrderId { get; set; }
+        public int DessertId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
-        public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        [Required]
+        public string DessertName { get; set; }
+        public virtual ICollection<Cakes> Cake { get; set; } = new List<Cakes>();
+
     }
 }

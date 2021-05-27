@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Cakes.cs" />
     <Compile Include="Customers.cs" />
+    <Compile Include="Desserts.cs" />
     <Compile Include="Employees.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202105240531433_InitialCreate.cs" />
@@ -74,8 +75,16 @@
     <Compile Include="Migrations\202105270724446_CustomerDelete.Designer.cs">
       <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105271133444_OrderMigration.cs" />
+    <Compile Include="Migrations\202105271133444_OrderMigration.Designer.cs">
+      <DependentUpon>202105271133444_OrderMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105271541116_DessertMigration.cs" />
+    <Compile Include="Migrations\202105271541116_DessertMigration.Designer.cs">
+      <DependentUpon>202105271541116_DessertMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +103,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105270724446_CustomerDelete.resx">
       <DependentUpon>202105270724446_CustomerDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271133444_OrderMigration.resx">
+      <DependentUpon>202105271133444_OrderMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271541116_DessertMigration.resx">
+      <DependentUpon>202105271541116_DessertMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

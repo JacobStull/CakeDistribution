@@ -1,5 +1,5 @@
-﻿using CakeDistribution.Models.Order;
-using CakeDistribution.Services.Order;
+﻿using CakeDistribution.Models.Dessert;
+using CakeDistribution.Services.Dessert;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -9,14 +9,15 @@ using System.Web.Mvc;
 
 namespace CakeDistribution.WebMVC.Controllers
 {
-    public class OrderController : Controller
+    public class DessertController : Controller
     {
-        // GET: Order
+        
+        // GET: Dessert
         [Authorize]
         public ActionResult Index()
         {
-            var service = CreateOrderService();
-            var model = service.GetOrders();
+            var service = CreateDessertService();
+            var model = service.GetDesserts();
             return View(model);
         }
 
@@ -29,77 +30,75 @@ namespace CakeDistribution.WebMVC.Controllers
         //Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OrderCreate model)
+        public ActionResult Create(DessertCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
 
-            var service = CreateOrderService();
+            var service = CreateDessertService();
 
 
 
-            if (service.CreateOrder(model))
+            if (service.CreateDessert(model))
             {
-                TempData["SaveResult"] = "Your Order was saved.";
+                TempData["SaveResult"] = "Your Dessert was saved.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Your Order could not be saved.");
+            ModelState.AddModelError("", "Your Dessert could not be saved.");
 
             return View(model);
         }
 
         public ActionResult Details(int id)
         {
-            var svc = CreateOrderService();
-            var model = svc.GetOrderById(id);
+            var svc = CreateDessertService();
+            var model = svc.GetDessertById(id);
             return View(model);
         }
 
         //Edit
         public ActionResult Edit(int id)
         {
-            var service = CreateOrderService();
-            var detail = service.GetOrderById(id);
+            var service = CreateDessertService();
+            var detail = service.GetDessertById(id);
             var model =
-                new OrderEdit
+                new DessertEdit
                 {
-                    OrderId = detail.OrderId,
-                    ModifiedUtc = detail.ModifiedUtc,
-                    CreatedUtc = detail.CreatedUtc,
-                    ItemOrdered = detail.ItemOrdered
+                    DessertId = detail.DessertId,
+                    DessertName = detail.DessertName
                 };
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, OrderEdit model)
+        public ActionResult Edit(int id, DessertEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.OrderId != id)
+            if (model.DessertId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateOrderService();
+            var service = CreateDessertService();
 
-            if (service.UpdateOrder(model))
+            if (service.UpdateDessert(model))
             {
-                TempData["SaveResults"] = "Your Order was updated.";
+                TempData["SaveResults"] = "Your Dessert was updated.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your Order could not be updated.");
+            ModelState.AddModelError("", "Your Dessert could not be updated.");
             return View(model);
         }
 
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateOrderService();
-            var model = svc.GetOrderById(id);
+            var svc = CreateDessertService();
+            var model = svc.GetDessertById(id);
 
             return View(model);
         }
@@ -109,16 +108,16 @@ namespace CakeDistribution.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateOrderService();
-            service.DeleteOrder(id);
-            TempData["SaveResult"] = "Your Order was deleted.";
+            var service = CreateDessertService();
+            service.DeleteDessert(id);
+            TempData["SaveResult"] = "Your Dessert was deleted.";
             return RedirectToAction("Index");
         }
 
-        private OrderService CreateOrderService()
+        private DessertService CreateDessertService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new OrderService(userId);
+            var service = new DessertService(userId);
             return service;
         }
 

@@ -6,15 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CakeDistribution.Models.Order
+namespace CakeDistribution.Data
 {
-    public class OrderListItem
+    public class Orders
     {
+        [Key]
         public int OrderId { get; set; }
-        [Display(Name ="Item Ordered")]
+        [Required]
+        public Guid OwnerId { get; set; }
+        [Required]
         public string ItemOrdered { get; set; }
-        [Display(Name="Date Ordered")]
         public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
+        [ForeignKey(nameof(Customer))]
         public int CustomerId { get; set; }
+        public virtual Customers Customer { get; set; }
     }
 }

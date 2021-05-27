@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<CakeDistribution.Models.Employee.EmployeeListItem>
 
+<link rel="stylesheet" href="~/Content/Site.css" />
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employees";
 }
 
-<h2>Index</h2>
+<h2>Employees</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New", "Create")
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -19,7 +20,7 @@
     </div>
 }
 <table class="table">
-    <tr>
+    <tr class="trtable">
         <th>
             @Html.DisplayNameFor(model => model.EmployeeId)
         </th>

@@ -36,7 +36,8 @@ namespace CakeDistribution.Data
         public DbSet<Cakes> ActiveCakes { get; set; }
         public DbSet<Customers> ActiveCustomers { get; set; }
         public DbSet<Employees> ActiveEmployees { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Desserts> ActiveDesserts { get; set; }
+        public DbSet<Orders> ActiveOrders { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

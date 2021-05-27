@@ -22,6 +22,7 @@ namespace CakeDistribution.Services.Cake
                 new Cakes()
                 {
                     OwnerId = _userId,
+                    DessertName = model.DessertName,
                     CakeName = model.CakeName,
                     CakeIcing = model.CakeIcing,
                     Description = model.Description
